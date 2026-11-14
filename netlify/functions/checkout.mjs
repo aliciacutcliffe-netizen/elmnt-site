@@ -17,7 +17,7 @@ const SHIPPING = {
 };
 
 const json = (body, status = 200) =>
-  new Response(JSON.stringify(body), { status, headers: { "Content-Type": "application/json" } });
+  new Response(JSON.stringify(body), { status, headers: { "Content-Type": "application/json; charset=utf-8" } });
 
 export default async (req) => {
   const key = process.env.STRIPE_SECRET_KEY;
