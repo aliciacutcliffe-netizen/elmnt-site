@@ -1,0 +1,78 @@
+[build]
+  command = "python3 build.py"
+  publish = "site"
+  functions = "netlify/functions"
+
+[build.environment]
+  PYTHON_VERSION = "3.11"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Old Shopify addresses → new pages, so Google links and old posts keep working
+[[redirects]]
+  from = "/collections/palo-santo-incense"
+  to = "/shop/#incense"
+  status = 301
+[[redirects]]
+  from = "/collections/palo-santo-jewellery"
+  to = "/shop/#jewellery"
+  status = 301
+[[redirects]]
+  from = "/collections/*"
+  to = "/shop/"
+  status = 301
+[[redirects]]
+  from = "/cart"
+  to = "/shop/?cart=open"
+  status = 301
+[[redirects]]
+  from = "/blogs/journal/what-is-palo-santo"
+  to = "/pages/palo-santo/"
+  status = 301
+[[redirects]]
+  from = "/blogs/*"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/pages/about"
+  to = "/pages/palo-santo/"
+  status = 301
+[[redirects]]
+  from = "/pages/palo-santo-wholesale"
+  to = "/pages/contact/"
+  status = 301
+[[redirects]]
+  from = "/pages/stockist"
+  to = "/shop/"
+  status = 301
+[[redirects]]
+  from = "/pages/links"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/pages/element-quiz"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/pages/elmnts-on-amazon"
+  to = "https://www.amazon.com.au/dp/B0HQ93B662"
+  status = 302
+[[redirects]]
+  from = "/policies/shipping-policy"
+  to = "/pages/shipping/"
+  status = 301
+[[redirects]]
+  from = "/policies/refund-policy"
+  to = "/pages/returns/"
+  status = 301
+[[redirects]]
+  from = "/account/*"
+  to = "/"
+  status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
