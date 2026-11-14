@@ -309,6 +309,8 @@ def main():
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
         + "".join(f"<url><loc>{SITE['url']}{u}</loc></url>" for u in urls) + "</urlset>\n")
     (OUT / "robots.txt").write_text(f"User-agent: *\nDisallow: /thank-you/\nSitemap: {SITE['url']}/sitemap.xml\n")
+    # The checkout function reads prices from this generated module (never from the browser)
+    (ROOT / "netlify/catalog.mjs").write_text("export default " + json.dumps(PRODUCTS, ensure_ascii=False) + ";\n")
     print(f"Built {len(PRODUCTS)} products and {len(pages)} pages into {OUT}")
 
 

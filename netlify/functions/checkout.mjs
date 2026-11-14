@@ -2,7 +2,7 @@
 // Prices always come from data/products.json on the server, never from the browser,
 // so nobody can change a price before paying.
 // Needs one environment variable in Netlify: STRIPE_SECRET_KEY (sk_live_... or sk_test_...).
-import products from "../../data/products.json" with { type: "json" };
+import products from "../catalog.mjs";
 
 const CDN = "https://cdn.shopify.com/s/files/1/0798/6790/4231/";
 
@@ -20,8 +20,18 @@ const json = (body, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: { "Content-Type": "application/json" } });
 
 export default async (req) => {
-  if (req.method !== "POST") return json({ error: "Method not allowed" }, 405);
   const key = process.env.STRIPE_SECRET_KEY;
+  if (req.method === "GET") {
+    // Status check: open /api/checkout in a browser to see if checkout is set up.
+    let stripe = "not checked";
+    if (key) {
+      const r = await fetch("https://api.stripe.com/v1/balance", { headers: { Authorization: `Bearer ${key}` } });
+      const b = await r.json().catch(() => ({}));
+      stripe = r.ok ? "connected" : `Stripe said: ${b.error?.message || r.status}`;
+    }
+    return json({ checkout: "running", stripeKeySet: !!key, keyType: key ? key.slice(0, 8) + "…" : null, stripe, products: products.length });
+  }
+  if (req.method !== "POST") return json({ error: "Method not allowed" }, 405);
   if (!key) return json({ error: "Checkout isn't switched on yet. Please check back soon." }, 503);
 
   let body;
@@ -84,7 +94,7 @@ export default async (req) => {
   const session = await res.json();
   if (!res.ok) {
     console.error("Stripe error", session.error);
-    return json({ error: "Checkout is unavailable right now. Please try again shortly." }, 502);
+    return json({ error: "Checkout is unavailable right now. Please try again shortly.", detail: session.error?.message }, 502);
   }
   return json({ url: session.url });
 };

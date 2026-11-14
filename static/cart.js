@@ -73,8 +73,8 @@
       <div class="sumrow"><span>Subtotal</span><span>${money(sub)}</span></div>
       <div class="sumrow"><span>Shipping</span><span>${SHIP[region].label}</span></div>
       <p class="note" style="margin:0">Choose your shipping speed and enter discount codes at checkout.</p>
-      <button class="btn full" type="button" data-checkout>Checkout · ${money(sub)} + shipping</button>
-      <p class="err" data-err hidden></p>`;
+      <p class="err" data-err hidden></p>
+      <button class="btn full" type="button" data-checkout>Checkout · ${money(sub)} + shipping</button>`;
   }
 
   async function checkout(btn) {
@@ -87,11 +87,14 @@
         body: JSON.stringify({ region, items: lines().map(l => ({ h: l.h, q: l.q })) })
       });
       const data = await res.json().catch(() => ({}));
-      if (!res.ok || !data.url) throw new Error(data.error || 'Checkout is unavailable right now. Please try again shortly.');
+      if (!res.ok || !data.url) throw new Error((data.error || `Checkout is unavailable right now (error ${res.status}).`) + (data.detail ? ' ' + data.detail : ''));
       location.href = data.url;
     } catch (e) {
-      err.textContent = e.message; err.hidden = false;
+      const msg = e.message || 'Checkout could not open. Please try again.';
       render();
+      const el = $('[data-err]');
+      if (el) { el.textContent = msg; el.hidden = false; }
+      toast(msg);
     }
   }
 
