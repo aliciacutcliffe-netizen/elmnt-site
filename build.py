@@ -21,7 +21,9 @@ esc = html.escape
 def img(path, width=None):
     """Local /images/... paths are used as-is; Shopify paths point at the CDN."""
     if path.startswith("/"):
-        return path
+        # Netlify's image CDN shrinks and converts photos (to WebP/AVIF) on the fly,
+        # so phones download ~50-150 KB instead of 2-3 MB PNGs.
+        return f"/.netlify/images?url={path}&w={width or 1600}&q=75"
     url = CDN + path
     if width:
         url += ("&" if "?" in url else "?") + f"width={width}"
