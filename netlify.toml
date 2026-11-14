@@ -47,10 +47,6 @@
   to = "/shop/"
   status = 301
 [[redirects]]
-  from = "/pages/links"
-  to = "/"
-  status = 301
-[[redirects]]
   from = "/pages/element-quiz"
   to = "/"
   status = 301
