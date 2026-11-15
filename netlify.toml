@@ -9,6 +9,12 @@
 [functions]
   node_bundler = "esbuild"
 
+# Short link for the Instagram bio
+[[redirects]]
+  from = "/links"
+  to = "/pages/links/"
+  status = 301
+
 # Old Shopify addresses → new pages, so Google links and old posts keep working
 [[redirects]]
   from = "/collections/palo-santo-incense"
