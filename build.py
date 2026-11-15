@@ -12,6 +12,11 @@ ROOT = Path(__file__).parent
 OUT = ROOT / "site"
 CDN = "https://cdn.shopify.com/s/files/1/0798/6790/4231/"
 
+# Google Analytics (GA4) — counts visitors on every page.
+GA_ID = "G-VZL94YFLF2"
+GA = f"""<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA_ID}');</script>"""
+
 SITE = json.loads((ROOT / "data/site.json").read_text())
 PRODUCTS = json.loads((ROOT / "data/products.json").read_text())
 CATS = dict(SITE["categories"])
@@ -81,6 +86,7 @@ def page(title, body, desc="", path="/", noindex=False, current=""):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Figtree:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="/style.css">
+{GA}
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
