@@ -5,7 +5,7 @@
   "cat": "incense",
   "p": 10.5,
   "c": 15.0,
-  "stock": 321,
+  "stock": 320,
   "img": [
    [
     "/images/64E180DA-507C-4D7B-B3CC-C88DBEA7FD67.png",
@@ -24,7 +24,7 @@
   "cat": "incense",
   "p": 10.5,
   "c": 15.0,
-  "stock": 1,
+  "stock": 0,
   "img": [
    [
     "/images/77AFAC2E-F28E-4709-AD0F-28AB1C7A948D.png",
@@ -39,7 +39,7 @@
   "cat": "incense",
   "p": 10.5,
   "c": 15.0,
-  "stock": 6,
+  "stock": 5,
   "img": [
    [
     "/images/BDDAF29A-7C2C-4DB8-BDE7-30D6644C7BD8.jpg",
