@@ -293,7 +293,8 @@ def content_page(f):
     body_html = raw[m.end():]
     handle = f.stem
     path = f"/pages/{handle}/"
-    body = f'<div class="wrap narrow prose"><h1>{esc(meta["title"])}</h1>{body_html}</div>'
+    extra = f' {meta["class"]}' if isinstance(meta.get("class"), str) else ""
+    body = f'<div class="wrap narrow prose{extra}"><h1>{esc(meta["title"])}</h1>{body_html}</div>'
     return path, page(meta["title"], body, meta.get("desc", ""), path, noindex="noindex" in meta, current=path)
 
 
