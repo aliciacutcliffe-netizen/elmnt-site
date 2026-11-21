@@ -72,7 +72,7 @@
       </div>
       <div class="sumrow"><span>Subtotal</span><span>${money(sub)}</span></div>
       <div class="sumrow"><span>Shipping</span><span>${SHIP[region].label}</span></div>
-      <p class="note" style="margin:0">Choose your shipping speed and enter discount codes at checkout.</p>
+      <p class="note" style="margin:0">One order, one shipping charge. Choose your shipping speed at checkout.</p>
       <p class="err" data-err hidden></p>
       <button class="btn full" type="button" data-checkout>Checkout · ${money(sub)} + shipping</button>`;
   }

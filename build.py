@@ -6,6 +6,7 @@ Netlify runs this automatically on every deploy (see netlify.toml).
 To change a price, stock level or description, edit data/products.json.
 """
 import html, json, re, shutil
+from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
 
 ROOT = Path(__file__).parent
@@ -20,6 +21,18 @@ GA = f"""<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"
 SITE = json.loads((ROOT / "data/site.json").read_text())
 PRODUCTS = json.loads((ROOT / "data/products.json").read_text())
 CATS = dict(SITE["categories"])
+
+# Sitewide sale (data/site.json → "sale"). The sale price is always worked out from the
+# full price before any discount ("c", or "p" if there is no "c"), so it never stacks
+# on top of an earlier sale. data/products.json itself is never changed.
+# To end the sale, delete the "sale" block from data/site.json.
+SALE = SITE.get("sale") or {}
+SALE_PCT = int(SALE.get("percent") or 0)
+if SALE_PCT:
+    for _p in PRODUCTS:
+        full = Decimal(str(max(_p.get("c") or 0, _p["p"])))
+        _p["c"] = float(full)
+        _p["p"] = float((full * (100 - SALE_PCT) / 100).quantize(Decimal("0.01"), ROUND_HALF_UP))
 esc = html.escape
 
 
@@ -59,11 +72,12 @@ def stock_label(p):
 
 def page(title, body, desc="", path="/", noindex=False, current=""):
     full_title = title if title.startswith(SITE["name"]) else f"{title} | {SITE['name']}"
-    nav = [("/shop/", "Shop"), ("/pages/palo-santo/", "Palo Santo"), ("/pages/meditations/", "Meditations")]
+    nav = [("/", "Home"), ("/shop/", "Shop"), ("/pages/meditations/", "Meditate"),
+           ("/pages/reconnect/", "Reconnect"), ("/pages/create/", "Create"), ("/pages/about/", "About")]
     nav_html = "".join(
         f'<a href="{h}"{" aria-current=page" if current == h else ""}>{t}</a>' for h, t in nav
     )
-    foot_links = [("/pages/shipping/", "Shipping"), ("/pages/returns/", "Returns"),
+    foot_links = [("/shop/", "Shop"), ("/pages/palo-santo/", "Palo Santo"), ("/pages/shipping/", "Shipping"), ("/pages/returns/", "Returns"),
                   ("/pages/faq/", "FAQ"), ("/pages/contact/", "Contact")]
     foot_links += [(u, n) for n, u in SITE["socials"]]
     foot_html = "".join(f'<a href="{h}">{t}</a>' for h, t in foot_links)
@@ -90,6 +104,7 @@ def page(title, body, desc="", path="/", noindex=False, current=""):
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+{f'<a class="saleband" href="/shop/">{esc(SALE["banner"])}</a>' if SALE_PCT else ""}
 <header class="top"><div class="wrap">
 <a class="brand" href="/"><img src="{img(SITE['logo'], 96)}" alt=""><span>ELMNT EARTH</span></a>
 <nav class="nav" aria-label="Main">{nav_html}</nav>
@@ -101,7 +116,7 @@ def page(title, body, desc="", path="/", noindex=False, current=""):
 {body}
 </main>
 <footer class="foot"><div class="wrap">
-<p class="motto">Grounded in Peru · Rooted in ritual</p>
+<p class="motto">Meditation · Energy · Creation</p>
 <div class="cols">{foot_html}</div>
 <p>© ELMNT Earth · Sydney, Australia · <a href="mailto:{SITE['email']}">{SITE['email']}</a></p>
 </div></footer>
@@ -206,6 +221,7 @@ def shop_page():
     in_stock = sorted(PRODUCTS, key=lambda p: p.get("stock", 0) <= 0)
     body = f"""<div class="wrap section">
 <h1>Shop</h1>
+{f'<p class="shopnote">{SALE_PCT}% off everything while stocks last. Sale prices are shown below and applied automatically.</p>' if SALE_PCT else ""}
 <div class="chips" role="group" aria-label="Filter by category">{chips}</div>
 <div class="grid" data-grid>{"".join(card(p) for p in in_stock)}</div>
 </div>"""
@@ -219,19 +235,35 @@ def home_page():
     cats = "".join(
         f'<a class="cat" href="/shop/#{k}" style="background-image:url(\'{img(cat_img[k], 500)}\')"><span>{esc(v)}</span></a>'
         for k, v in SITE["categories"])
-    incense = by_cat("incense") + by_cat("mist")
+    featured = (by_cat("incense") + by_cat("mist") + by_cat("jewellery"))[:8]
     inti = by_cat("inti")[:4]
+    offerings = [
+        ("meditate", "/pages/meditations/", "Meditate", "Stillness", "Free guided breathing meditations, a new one every week."),
+        ("reconnect", "/pages/reconnect/", "Reconnect", "Connection", "Reiki and energy sessions, booked around a calm, unhurried pace."),
+        ("create", "/pages/create/", "Create", "Expression", "Poetry, the book Elmnts and handmade INTI pieces."),
+    ]
+    tiles = "".join(
+        f'<a class="offer {k}" href="{h}"><p class="eyebrow">{esc(sub)}</p><h3>{esc(t)}</h3><p>{esc(d)}</p><span class="more">Explore</span></a>'
+        for k, h, t, sub, d in offerings)
+    sale_head = f"{SALE_PCT}% off sitewide" if SALE_PCT else "Shop"
     body = f"""<section class="hero"><div class="wrap">
 <img class="logo" src="{img(SITE['logo'], 200)}" alt="ELMNT Earth">
 <p class="eyebrow">ELMNT EARTH</p>
-<h1>Ground your day, one sacred stick at a time</h1>
-<p>Ethically sourced Palo Santo, hand pressed in Huanchaco, Peru. Shipped from Sydney.</p>
-<a class="btn" href="/shop/">Shop now</a>
+<h1>A space to reconnect, create and simply be.</h1>
+<p class="pillars">Meditation · Energy · Creation</p>
+<div class="ctas"><a class="btn" href="/shop/">{"Shop the " + str(SALE_PCT) + "% off sale" if SALE_PCT else "Shop now"}</a><a class="btn ghost" href="/pages/about/">Our new direction</a></div>
+</div></section>
+<section class="section"><div class="wrap">
+<div class="section-head"><h2>{sale_head}</h2><a href="/shop/">Shop all</a></div>
+<p class="sub">Palo Santo incense, Aura Mist and jewellery, while stocks last.</p>
+<div class="grid">{"".join(card(p) for p in featured)}</div>
+<p style="text-align:center;margin-top:24px"><a class="btn" href="/shop/">Shop everything</a></p>
 </div></section>
 <section class="section"><div class="wrap"><div class="cats">{cats}</div></div></section>
 <section class="section"><div class="wrap">
-<div class="section-head"><h2>Palo Santo incense &amp; mist</h2><a href="/shop/#incense">View all</a></div>
-<div class="grid">{"".join(card(p) for p in incense)}</div>
+<p class="eyebrow">ELMNT EARTH is evolving</p>
+<h2 style="margin-top:0">A creative and wellbeing studio</h2>
+<div class="offers">{tiles}</div>
 </div></section>
 <section class="section"><div class="wrap">
 <div class="section-head"><h2>INTI · one-of-one art</h2><a href="/shop/#inti">View all</a></div>
@@ -239,17 +271,13 @@ def home_page():
 </div></section>
 <section class="section"><div class="wrap story">
 <img src="{img(PRODUCTS[0]['img'][-1][0], 900)}" alt="Palo Santo incense burning in a handmade holder" loading="lazy">
-<div class="panel"><p class="eyebrow">From forest to ritual</p><h2 style="margin-top:0">Naturally fallen. Hand pressed.</h2>
+<div class="panel"><p class="eyebrow">Break · Burn · Breathe</p><h2 style="margin-top:0">Naturally fallen. Hand pressed.</h2>
 <p>Our Palo Santo is gathered only from naturally fallen wood in the dry forests of Piura, then milled and pressed by hand in Huanchaco, on Peru's northern coast.</p>
 <a class="btn ghost" href="/pages/palo-santo/">Read the story</a></div>
-</div></section>
-<section class="section"><div class="wrap narrow" style="text-align:center">
-<p class="eyebrow">Free guided meditations</p><h2 style="margin-top:0">Light a stick. Press play. Breathe.</h2>
-<p style="color:var(--muted)">Gentle 10-minute breathing meditations, a new one every week.</p>
-<a class="btn ghost" href="/pages/meditations/">Listen now</a>
 </div></section>"""
-    return page(f"{SITE['name']} | Ethically Sourced Palo Santo from Peru", body,
-                "Ethically sourced Palo Santo incense hand pressed in Huanchaco, Peru. Aura Mist, Palo Santo jewellery and one-of-one INTI art. Shipped from Sydney.", "/")
+    return page(f"{SITE['name']} | Meditation · Energy · Creation", body,
+                "ELMNT Earth is a creative and wellbeing studio: free guided meditations, Reiki, poetry and handmade art, plus ethically sourced Palo Santo from Peru, now 40% off while stocks last." if SALE_PCT else
+                "ELMNT Earth is a creative and wellbeing studio: free guided meditations, Reiki, poetry and handmade art, plus ethically sourced Palo Santo from Peru.", "/", current="/")
 
 
 def content_page(f):
@@ -318,7 +346,8 @@ def main():
         + "".join(f"<url><loc>{SITE['url']}{u}</loc></url>" for u in urls) + "</urlset>\n")
     (OUT / "robots.txt").write_text(f"User-agent: *\nDisallow: /thank-you/\nSitemap: {SITE['url']}/sitemap.xml\n")
     # The checkout function reads prices from this generated module (never from the browser)
-    (ROOT / "netlify/catalog.mjs").write_text("export default " + json.dumps(PRODUCTS, ensure_ascii=False) + ";\n")
+    (ROOT / "netlify/catalog.mjs").write_text("export default " + json.dumps(PRODUCTS, ensure_ascii=False) + ";\n"
+                                              + "export const SALE = " + json.dumps({"percent": SALE_PCT}) + ";\n")
     print(f"Built {len(PRODUCTS)} products and {len(pages)} pages into {OUT}")
 
 

@@ -2,7 +2,7 @@
 // Prices always come from data/products.json on the server, never from the browser,
 // so nobody can change a price before paying.
 // Needs one environment variable in Netlify: STRIPE_SECRET_KEY (sk_live_... or sk_test_...).
-import products from "../catalog.mjs";
+import products, { SALE } from "../catalog.mjs";
 
 const CDN = "https://cdn.shopify.com/s/files/1/0798/6790/4231/";
 
@@ -68,7 +68,8 @@ export default async (req) => {
   form.append("currency", "aud");
   form.append("success_url", `${origin}/thank-you/?session_id={CHECKOUT_SESSION_ID}`);
   form.append("cancel_url", `${origin}/shop/?cart=open`);
-  form.append("allow_promotion_codes", "true");
+  // During a sitewide sale, discount codes are switched off so they can't stack on the sale price.
+  form.append("allow_promotion_codes", SALE?.percent ? "false" : "true");
   form.append("billing_address_collection", "auto");
   form.append("phone_number_collection[enabled]", "true");
   form.append("metadata[region]", region);

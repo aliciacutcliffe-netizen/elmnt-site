@@ -3,7 +3,7 @@
   "url": "https://elmntearth.com",
   "email": "info@elmntearth.com",
   "logo": "/images/IMG_3911.png",
-  "tagline": "Ethically sourced Palo Santo from Peru",
+  "tagline": "A space to reconnect, create and simply be.",
   "categories": [
     [
       "incense",
@@ -35,5 +35,9 @@
       "Spotify",
       "https://open.spotify.com/show/1iiy31Ej36v2bVpdsA91XR"
     ]
-  ]
+  ],
+  "sale": {
+    "percent": 40,
+    "banner": "40% OFF SITEWIDE — WHILE STOCKS LAST"
+  }
 }

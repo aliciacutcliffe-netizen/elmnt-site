@@ -41,10 +41,6 @@
   to = "/"
   status = 301
 [[redirects]]
-  from = "/pages/about"
-  to = "/pages/palo-santo/"
-  status = 301
-[[redirects]]
   from = "/pages/palo-santo-wholesale"
   to = "/pages/contact/"
   status = 301
