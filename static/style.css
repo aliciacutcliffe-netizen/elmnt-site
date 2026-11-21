@@ -185,3 +185,19 @@ details p{margin:.6em 0 0}
 .prose.create .btn{margin-top:4px}
 @media (max-width:480px){.prose.create{padding:24px 22px 64px}.prose.create p{font-size:15.5px;line-height:1.75}.prose.create h1{margin-bottom:.3em}}
 @media (max-width:340px){.prose.create{padding-left:18px;padding-right:18px}.prose.create p{font-size:15px}}
+
+/* Reconnect page */
+.prose.reconnect{padding:32px 20px 72px;overflow-wrap:break-word}
+.prose.reconnect h1{margin-bottom:.5em}
+.prose.reconnect h2{font-size:clamp(1.7rem,7vw,2.3rem);margin:.15em 0 .2em}
+.prose.reconnect h3{font-size:clamp(1.2rem,5vw,1.45rem);margin:1.8em 0 .6em}
+.prose.reconnect .subtitle{font-family:var(--display);color:var(--gold);font-size:clamp(1.05rem,4.4vw,1.25rem);margin:0 0 1em}
+.prose.reconnect p{margin:0 0 1.15em}
+.prose.reconnect ul{padding-left:1.15em;margin:0 0 1.2em}
+.prose.reconnect li{margin-bottom:.6em}
+.prose.reconnect .facts{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0 0 1.6em}
+.prose.reconnect .facts li{margin:0;padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--head);font-size:14px;font-weight:600}
+.prose.reconnect .online{padding:14px 16px;border-left:2px solid var(--gold);background:var(--surface);border-radius:0 12px 12px 0;color:var(--head)}
+.prose.reconnect .note{margin-top:1.6em}
+@media (max-width:480px){.prose.reconnect{padding:24px 22px 64px}.prose.reconnect p,.prose.reconnect li{font-size:15.5px;line-height:1.75}.prose.reconnect .note{font-size:13.5px}}
+@media (max-width:340px){.prose.reconnect{padding-left:18px;padding-right:18px}.prose.reconnect p,.prose.reconnect li{font-size:15px}}
