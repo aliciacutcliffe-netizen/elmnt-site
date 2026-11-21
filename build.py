@@ -240,7 +240,7 @@ def home_page():
     offerings = [
         ("meditate", "/pages/meditations/", "Meditate", "Stillness", "Free guided breathing meditations, a new one every week."),
         ("reconnect", "/pages/reconnect/", "Reconnect", "Connection", "Reiki and energy sessions, booked around a calm, unhurried pace."),
-        ("create", "/pages/create/", "Create", "Expression", "Poetry, the book Elmnts and handmade INTI pieces."),
+        ("create", "/pages/create/", "Create", "Expression", "Websites and back-end setup for small businesses, without the overwhelm."),
     ]
     tiles = "".join(
         f'<a class="offer {k}" href="{h}"><p class="eyebrow">{esc(sub)}</p><h3>{esc(t)}</h3><p>{esc(d)}</p><span class="more">Explore</span></a>'
@@ -276,8 +276,8 @@ def home_page():
 <a class="btn ghost" href="/pages/palo-santo/">Read the story</a></div>
 </div></section>"""
     return page(f"{SITE['name']} | Meditation · Energy · Creation", body,
-                "ELMNT Earth is a creative and wellbeing studio: free guided meditations, Reiki, poetry and handmade art, plus ethically sourced Palo Santo from Peru, now 40% off while stocks last." if SALE_PCT else
-                "ELMNT Earth is a creative and wellbeing studio: free guided meditations, Reiki, poetry and handmade art, plus ethically sourced Palo Santo from Peru.", "/", current="/")
+                "ELMNT Earth is a creative and wellbeing studio: free guided meditations, Reiki and website creation, plus ethically sourced Palo Santo from Peru, now 40% off while stocks last." if SALE_PCT else
+                "ELMNT Earth is a creative and wellbeing studio: free guided meditations, Reiki and website creation, plus ethically sourced Palo Santo from Peru.", "/", current="/")
 
 
 def content_page(f):
