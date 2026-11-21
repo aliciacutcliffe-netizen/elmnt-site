@@ -1,3 +1,4 @@
 site/
 __pycache__/
 netlify/catalog.mjs
+netlify/booking.mjs

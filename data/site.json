@@ -39,5 +39,29 @@
   "sale": {
     "percent": 40,
     "banner": "40% OFF SITEWIDE — WHILE STOCKS LAST"
+  },
+  "booking": {
+    "name": "Return to Self",
+    "subtitle": "Online Reiki & Intuitive Meditation",
+    "price": 120,
+    "minutes": 60,
+    "tz": "Australia/Sydney",
+    "days": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "times": [
+      "10:00",
+      "12:00",
+      "16:00",
+      "19:00"
+    ],
+    "minDays": 3,
+    "maxDays": 28,
+    "blocked": []
   }
 }

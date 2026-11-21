@@ -16,5 +16,31 @@
 <ul class="facts" aria-label="Session details"><li>60 minutes</li><li>Online</li><li>$120 AUD</li></ul>
 <p>Available wherever you are in the world.</p>
 <p class="online">Sessions are 100% online. I’m not currently offering in-person treatments.</p>
+<div class="booker" id="book" data-booker>
+<h4>Choose a day</h4>
+<p class="tzline" data-tzline>Loading available times…</p>
+<div class="days" data-days role="group" aria-label="Choose a day"></div>
+<h4 data-times-head hidden>Choose a time</h4>
+<div class="times" data-times role="group" aria-label="Choose a time"></div>
+<p class="err" data-book-err hidden></p>
+<button class="btn full" type="button" data-book disabled>Choose a day and time</button>
+<p class="note small">Secure payment with Stripe. Your time is held while you pay. Sessions can be booked from 3 days to 4 weeks ahead.</p>
+<noscript><p>Booking needs JavaScript. Please <a href="mailto:info@elmntearth.com?subject=Return%20to%20Self%20session">email me</a> to book.</p></noscript>
+</div>
+<details class="request">
+<summary>Can’t find a time that suits? Request a different time</summary>
+<p>Tell me a few times that would work for you. I’ll confirm by email, and once I approve a time I’ll send you a link to pay and secure it.</p>
+<form class="form" name="session-request" method="POST" action="/pages/request-received/" data-netlify="true" netlify-honeypot="company-url">
+<input type="hidden" name="form-name" value="session-request">
+<input type="hidden" name="timezone" data-tz-field>
+<p class="hp"><label>Leave blank <input name="company-url"></label></p>
+<label>Name<input name="name" required autocomplete="name"></label>
+<label>Email<input type="email" name="email" required autocomplete="email"></label>
+<label>Times that would suit you (include your city or time zone)<textarea name="times" rows="4" required placeholder="e.g. Sunday 8 December, any time after 2pm London time"></textarea></label>
+<button class="btn" type="submit">Send request</button>
+</form>
+</details>
+<p class="ask">Have a question first?</p>
 <p><a class="btn" href="mailto:info@elmntearth.com?subject=Return%20to%20Self%20session">Enquire About a Session</a></p>
+<script src="/book.js" defer></script>
 <p class="note">Reiki is a complementary spiritual wellbeing practice and is not a substitute for medical care.</p>

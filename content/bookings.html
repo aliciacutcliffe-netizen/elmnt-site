@@ -1,0 +1,25 @@
+<!-- title: Bookings | class: reconnect | desc: Private bookings page. | noindex -->
+<div data-admin>
+<form class="form" data-a-login>
+<label>Bookings passcode<input type="password" name="key" autocomplete="current-password" required></label>
+<button class="btn" type="submit">Open bookings</button>
+</form>
+<div data-a-main hidden>
+<h3>Upcoming sessions</h3>
+<div data-a-list><p class="note">Loading…</p></div>
+<h3>Approve a requested time</h3>
+<p>Enter the time you’ve agreed in <strong>Sydney time</strong>. You’ll get a payment link to send to the client. The time is held for them for 23 hours, and it’s booked once they pay.</p>
+<form class="form" data-a-approve>
+<label>Date<input type="date" name="date" required></label>
+<label>Start time (Sydney)<input type="time" name="time" required step="300"></label>
+<label>Client email (optional)<input type="email" name="email"></label>
+<button class="btn" type="submit">Create payment link</button>
+</form>
+<div data-a-result></div>
+<h3>Your calendar feed</h3>
+<p class="note">Add this link to your phone’s calendar as a subscribed calendar to see paid bookings automatically.</p>
+<p><button class="btn ghost" type="button" data-a-feed>Copy calendar link</button></p>
+<p><button class="rm" type="button" data-a-logout>Log out on this phone</button></p>
+</div>
+</div>
+<script src="/book.js" defer></script>

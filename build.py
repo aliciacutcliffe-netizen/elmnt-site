@@ -334,7 +334,8 @@ def main():
     for f in sorted((ROOT / "content").glob("*.html")):
         path, text = content_page(f)
         write(path, text)
-        pages.append(path)
+        if 'name="robots" content="noindex"' not in text:
+            pages.append(path)
     write("/thank-you/", thank_you())
     (OUT / "404.html").write_text(not_found())
 
@@ -349,6 +350,8 @@ def main():
     # The checkout function reads prices from this generated module (never from the browser)
     (ROOT / "netlify/catalog.mjs").write_text("export default " + json.dumps(PRODUCTS, ensure_ascii=False) + ";\n"
                                               + "export const SALE = " + json.dumps({"percent": SALE_PCT}) + ";\n")
+    # Session booking settings for netlify/functions/book.mjs (times, price, notice, blocked dates)
+    (ROOT / "netlify/booking.mjs").write_text("export default " + json.dumps(SITE.get("booking", {}), ensure_ascii=False) + ";\n")
     print(f"Built {len(PRODUCTS)} products and {len(pages)} pages into {OUT}")
 
 
