@@ -100,6 +100,10 @@ p{margin:0 0 1em}
 .price.feature{background:var(--forest);color:var(--off);border-color:var(--forest)}
 .price.feature .for,.price.feature .from small{color:#c7d6c6}
 .fine{margin-top:22px;font-size:15px}
+.have{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 32px;margin-top:16px;padding:clamp(22px,3vw,32px);border-radius:22px;background:color-mix(in srgb,var(--moss) 38%,var(--card));border:1px solid var(--line)}
+.have>div{flex:1 1 420px}
+.have h3{font-size:1.5rem;margin-bottom:8px}
+.have p{margin:0;font-size:16px;max-width:62ch}
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:28px;margin-top:36px}
 .step{border-top:2px solid currentColor;padding-top:16px}
 .step h3{margin-bottom:6px}
@@ -154,7 +158,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
 <section class="band" id="build"><div class="wrap">
 <div class="intro">
-<h2>From a simple landing page to a fully customised website.</h2>
+<h2>From a simple landing page to a fully customised website, or a smoother back end for the one you have.</h2>
 <p>I work with individuals and small businesses to bring their ideas into the digital world, along with the systems behind the scenes that quietly keep things running. No unnecessary complexity. No technical overwhelm. Just thoughtful solutions built around what you actually need.</p>
 </div>
 <div class="grid">
@@ -164,6 +168,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <div class="card"><h3>Bookings &amp; payments</h3><p>Customers choose a time and pay upfront. No back-and-forth messages.</p></div>
 <div class="card"><h3>Inventory &amp; systems</h3><p>Stock, orders and the tools you already use, connected so the admin looks after itself.</p></div>
 <div class="card"><h3>AI, made simple</h3><p>Curious about how AI could work for your business? We’ll find where it genuinely saves you time.</p></div>
+</div>
+<div class="have">
+<div><h3>Already have a website?</h3>
+<p>Keep it. If the site is fine but everything behind it is a juggle, I’ll streamline the back end: orders, stock, bookings, payments and the admin in between, connected so they work together.</p></div>
+<a class="btn dark" href="#contact">Streamline my back end</a>
 </div>
 </div></section>
 
@@ -207,7 +216,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <ul><li>Shop, cart and secure checkout</li><li>Shipping and stock levels</li><li>Payments straight to your account</li><li>No monthly platform fees</li></ul></div>
 <div class="price"><h3>Bookings &amp; payments</h3><p class="from"><small>from</small>$650</p><p class="for">Added to a new or existing site</p>
 <ul><li>Your available times, your rules</li><li>Paid upfront at booking</li><li>Confirmations sent automatically</li><li>Works across time zones</li></ul></div>
-<div class="price"><h3>Systems &amp; automation</h3><p class="from"><small>from</small>$1,500</p><p class="for">For businesses drowning in admin</p>
+<div class="price"><h3>Systems &amp; automation</h3><p class="from"><small>from</small>$1,500</p><p class="for">For your new or existing website</p>
 <ul><li>Inventory, orders and suppliers</li><li>Connecting the tools you already use</li><li>Fewer spreadsheets, less double handling</li><li>Scoped together before we start</li></ul></div>
 <div class="price"><h3>AI made simple</h3><p class="from"><small>from</small>$180</p><p class="for">A 90-minute online session</p>
 <ul><li>Where AI fits your business</li><li>Set up on your own tools</li><li>Plain language, at your pace</li></ul></div>
@@ -247,7 +256,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <label for="f-email">Email<input id="f-email" type="email" name="email" required autocomplete="email"></label>
 <label for="f-biz">Business name (if you have one)<input id="f-biz" name="business" autocomplete="organization"></label>
 <label for="f-need">What are you looking for?
-<select id="f-need" name="looking-for"><option>Not sure yet</option><option>Landing page</option><option>Custom website</option><option>Online store</option><option>Bookings &amp; payments</option><option>Systems &amp; automation</option><option>AI made simple</option></select></label>
+<select id="f-need" name="looking-for"><option>Not sure yet</option><option>Landing page</option><option>Custom website</option><option>Online store</option><option>Bookings &amp; payments</option><option>Streamline my existing back end</option><option>Systems &amp; automation</option><option>AI made simple</option></select></label>
 <label for="f-msg">Tell me about your idea<textarea id="f-msg" name="message" required></textarea></label>
 <button class="btn dark" type="submit">Send enquiry</button>
 <p class="status" id="f-status" role="status"></p>
