@@ -326,6 +326,8 @@ def main():
     if OUT.exists():
         shutil.rmtree(OUT)
     shutil.copytree(ROOT / "static", OUT)
+    # ELMNT Studio: standalone site served at /studio/ (can move to its own domain later)
+    shutil.copytree(ROOT / "studio", OUT / "studio")
     write("/", home_page())
     write("/shop/", shop_page())
     for p in PRODUCTS:
