@@ -52,7 +52,9 @@ p{margin:0 0 1em}
 @media (max-width:860px){.nav{display:none}}
 /* hero */
 .hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,5vw,72px);align-items:center}
-.hero .lede{font-size:clamp(1.05rem,2vw,1.25rem);max-width:40ch;margin:22px 0 30px;color:#dbe5d8}
+.hero .lede{font-size:clamp(1.15rem,2.2vw,1.35rem);line-height:1.4;max-width:34ch;margin:22px 0 12px;color:var(--off)}
+.hero .lede strong{font-weight:600}
+.hero .lede2{font-size:clamp(1rem,1.8vw,1.15rem);max-width:42ch;margin:0 0 30px;color:#dbe5d8}
 .ctas{display:flex;flex-wrap:wrap;gap:12px}
 .ctas .btn:not(.solid){color:var(--off)}
 .scene{position:relative;display:grid;place-items:center;padding:40px 24px}
@@ -83,6 +85,10 @@ p{margin:0 0 1em}
 .card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px}
 .card h3{margin-bottom:8px}
 .card p{margin:0;color:var(--muted);font-size:16px}
+.card.feature{background:var(--forest);border-color:var(--forest);color:var(--off)}
+.card.feature h3{font-size:1.6rem}
+.card.feature p{color:#dbe5d8;font-size:17px;max-width:52ch}
+@media (min-width:980px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.card.feature{grid-column:span 2}}
 .work{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:20px;margin-top:36px}
 .case{background:var(--deep);border-radius:24px;padding:26px;display:flex;flex-direction:column}
 .case .kind{font-size:14px;color:#c7d6c6;margin-bottom:6px}
@@ -122,6 +128,7 @@ textarea{min-height:120px;resize:vertical}
 footer{background:var(--deep);color:#c7d6c6;font-size:15px}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 @media (max-width:760px){.intro,.about,.contact{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:600px){.intro{gap:18px}.intro p{font-size:1.02rem;margin-bottom:.8em}.intro .kicker{margin-top:1em}.grid{gap:10px;margin-top:26px}.card{padding:18px 18px 19px;border-radius:18px}.card h3{font-size:1.15rem;margin-bottom:4px}.card p{font-size:15px}.card.feature h3{font-size:1.3rem}.card.feature p{font-size:15.5px}.have{margin-top:10px;padding:20px 18px}.have h3{font-size:1.25rem}}
 </style>
 </head>
 <body>
@@ -135,7 +142,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <section class="band green"><div class="wrap hero">
 <div>
 <h1>Your ideas. Brought to life.</h1>
-<p class="lede">You started your business because you love what you do. I help make the rest easier, with beautiful websites, connected systems and smart automation that gives you more time for your customers.</p>
+<p class="lede"><strong>Beautiful websites. Smarter systems. Less time spent on admin.</strong></p>
+<p class="lede2">Helping passionate business owners simplify the behind-the-scenes work, so they can focus on what they do best.</p>
 <div class="ctas"><a class="btn solid" href="#contact">Let’s talk</a><a class="btn" href="#packages">See packages</a></div>
 </div>
 <div class="scene" aria-label="Illustration: a business dashboard showing bookings and customers connected, payments and inventory synced, and workflows automated">
@@ -155,19 +163,18 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <div class="intro">
 <h2>You built a business around something you love. Let’s keep it that way.</h2>
 <div>
-<p>You didn’t start your business to spend your days buried in admin, juggling systems or trying to figure out technology.</p>
-<p>You started it because you were passionate about something.</p>
-<p>At ELMNT Studio, I help small businesses simplify the behind-the-scenes work through beautiful websites, smart integrations and practical automation.</p>
-<p>From Shopify and Squarespace to bookings, payments, inventory and custom business systems, I create solutions that work for you, not the other way around.</p>
-<p class="kicker">Less admin. Less overwhelm. More time for the people and work you love.</p>
+<p>Running a business takes passion. But somewhere between the bookings, payments, orders and endless admin, it’s easy to lose time for the work you actually love.</p>
+<p>That’s where I come in.</p>
+<p>At ELMNT Studio, I build beautiful websites, connect business systems and create practical automations that make everyday operations easier.</p>
+<p>Whether you’re using Shopify, Squarespace or need something more customised, I’ll help find a solution that works for your business.</p>
+<p class="kicker">Less admin. Less overwhelm. More time for what matters.</p>
 </div>
 </div>
 <div class="grid">
-<div class="card"><h3>Landing pages</h3><p>One beautiful page that says who you are and gets people in touch. Online in days.</p></div>
-<div class="card"><h3>Custom websites</h3><p>Multi-page sites designed around your brand, fast on a phone and easy to keep up to date.</p></div>
-<div class="card"><h3>Online stores</h3><p>Products, a proper cart and secure checkout, with shipping worked out at the till.</p></div>
+<div class="card feature"><h3>Systems &amp; automation</h3><p>Bookings, payments, orders, stock and the tools you already use, connected so everyday admin runs itself. No more copying between spreadsheets or chasing what’s been paid.</p></div>
 <div class="card"><h3>Bookings &amp; payments</h3><p>Customers choose a time and pay upfront. No back-and-forth messages.</p></div>
-<div class="card"><h3>Inventory &amp; systems</h3><p>Stock, orders and the tools you already use, connected so the admin looks after itself.</p></div>
+<div class="card"><h3>Websites</h3><p>From a simple landing page to a fully custom site, designed around your brand and easy to keep up to date.</p></div>
+<div class="card"><h3>Online stores</h3><p>Products, a proper cart and secure checkout, with shipping and stock looked after.</p></div>
 <div class="card"><h3>AI, made simple</h3><p>Curious about how AI could work for your business? We’ll find where it genuinely saves you time.</p></div>
 </div>
 <div class="have">
