@@ -77,7 +77,9 @@ p{margin:0 0 1em}
 @media (max-width:520px){.scene{grid-template-columns:minmax(0,1fr);justify-items:center;padding:24px 16px}.feed{grid-template-columns:repeat(2,minmax(0,1fr));width:100%}.feed .lbl{grid-column:1/-1;text-align:center}.chip{white-space:normal;align-items:flex-start}}
 @media (max-width:420px){.chip{font-size:12px;padding:8px 10px 8px 8px;gap:7px}.chip i{width:22px;height:22px;font-size:12px}.chip small{font-size:11px}.phone{width:210px}.screen{min-height:360px}}
 /* sections */
-.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:end}
+.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:start}
+@media (min-width:761px){.intro h2{position:sticky;top:96px}}
+.intro .kicker{font-weight:600;color:var(--ink);margin-top:1.4em}
 .intro p{font-size:1.15rem;max-width:52ch}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-top:36px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px}
@@ -158,8 +160,14 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
 <section class="band" id="build"><div class="wrap">
 <div class="intro">
-<h2>From a simple landing page to a fully customised website, or a smoother back end for the one you have.</h2>
-<p>I work with individuals and small businesses to bring their ideas into the digital world, along with the systems behind the scenes that quietly keep things running. No unnecessary complexity. No technical overwhelm. Just thoughtful solutions built around what you actually need.</p>
+<h2>You built a business around something you love. Let’s keep it that way.</h2>
+<div>
+<p>You didn’t start your business to spend your days buried in admin, juggling systems or trying to figure out technology.</p>
+<p>You started it because you were passionate about something.</p>
+<p>At ELMNT Studio, I help small businesses simplify the behind-the-scenes work through beautiful websites, smart integrations and practical automation.</p>
+<p>From Shopify and Squarespace to bookings, payments, inventory and custom business systems, I create solutions that work for you, not the other way around.</p>
+<p class="kicker">Less admin. Less overwhelm. More time for the people and work you love.</p>
+</div>
 </div>
 <div class="grid">
 <div class="card"><h3>Landing pages</h3><p>One beautiful page that says who you are and gets people in touch. Online in days.</p></div>
