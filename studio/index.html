@@ -2,9 +2,10 @@
 <html lang="en-AU">
 <head>
 <meta charset="utf-8">
+<script>document.documentElement.classList.add("js")</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ELMNT Studio</title>
-<meta name="description" content="ELMNT Studio builds websites, online stores, bookings, payments and business systems for sole traders and small businesses in Sydney and beyond. Less admin, more time for your customers.">
+<meta name="description" content="ELMNT Studio designs beautiful websites and smart systems for small businesses, so customers can browse, book and buy any time, and owners get their time back. Based in Sydney.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -106,10 +107,6 @@ p{margin:0 0 1em}
 .price.feature{background:var(--forest);color:var(--off);border-color:var(--forest)}
 .price.feature .for,.price.feature .from small{color:#c7d6c6}
 .fine{margin-top:22px;font-size:15px}
-.have{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 32px;margin-top:16px;padding:clamp(22px,3vw,32px);border-radius:22px;background:color-mix(in srgb,var(--moss) 38%,var(--card));border:1px solid var(--line)}
-.have>div{flex:1 1 420px}
-.have h3{font-size:1.5rem;margin-bottom:8px}
-.have p{margin:0;font-size:16px;max-width:62ch}
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:28px;margin-top:36px}
 .step{border-top:2px solid currentColor;padding-top:16px}
 .step h3{margin-bottom:6px}
@@ -128,7 +125,32 @@ textarea{min-height:120px;resize:vertical}
 footer{background:var(--deep);color:#c7d6c6;font-size:15px}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 @media (max-width:760px){.intro,.about,.contact{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:600px){.intro{gap:18px}.intro p{font-size:1.02rem;margin-bottom:.8em}.intro .kicker{margin-top:1em}.grid{gap:10px;margin-top:26px}.card{padding:18px 18px 19px;border-radius:18px}.card h3{font-size:1.15rem;margin-bottom:4px}.card p{font-size:15px}.card.feature h3{font-size:1.3rem}.card.feature p{font-size:15.5px}.have{margin-top:10px;padding:20px 18px}.have h3{font-size:1.25rem}}
+@media (max-width:600px){.intro{gap:18px}.intro p{font-size:1.02rem;margin-bottom:.8em}.intro .kicker{margin-top:1em}.grid{gap:10px;margin-top:26px}.card{padding:18px 18px 19px;border-radius:18px}.card h3{font-size:1.15rem;margin-bottom:4px}.card p{font-size:15px}.card.feature h3{font-size:1.3rem}.card.feature p{font-size:15.5px}}
+
+/* refinements */
+h1{font-size:clamp(2.15rem,5.2vw,3.9rem)}
+h2{font-size:clamp(1.85rem,4vw,2.75rem)}
+.hero .lede{font-size:clamp(1.05rem,1.9vw,1.25rem);line-height:1.55;max-width:42ch;margin:22px 0 30px;color:#dbe5d8}
+.intro p,.about p,.case dd,.fitnote{max-width:60ch}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:16px;margin-top:36px}
+.features+.grid{margin-top:16px}
+.grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.fitnote{margin:24px 0 0;font-size:16px;color:var(--muted)}
+.case dl{margin:0 0 20px}
+.case dt{font-size:13px;font-weight:600;color:var(--moss);margin-top:14px}
+.case dt:first-child{margin-top:0}
+.case dd{margin:3px 0 0;color:#dbe5d8;font-size:16px}
+.costs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px;margin-top:16px}
+.costs>div{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px}
+.costs h3{font-size:1.15rem;margin-bottom:10px}
+.costs ul{margin:0;padding-left:1.1em;font-size:15.5px;color:var(--muted)}
+.costs li{margin-bottom:6px}
+@media (min-width:980px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:600px){.band{padding-block:52px}.hero .lede{margin:16px 0 24px}.features{gap:10px;margin-top:26px}.features+.grid{margin-top:10px}.fitnote{font-size:15px}.case{padding:22px 20px}.case h3{font-size:1.45rem}.case dd{font-size:15px}.costs{gap:10px}.costs>div{padding:20px 18px;border-radius:18px}.price{padding:22px 20px}}
+@media (max-width:600px){.price{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;align-items:baseline}.price h3{font-size:1.15rem}.price .from{margin:0;font-size:1.7rem}.price .from small{font-size:13px}.price .for,.price ul{grid-column:1/-1}.price .for{margin:4px 0 10px}.price li{margin-bottom:3px;font-size:15px}.costs ul{font-size:15px}}
+html.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+html.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html.js .reveal{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
@@ -141,9 +163,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <main id="top">
 <section class="band green"><div class="wrap hero">
 <div>
-<h1>Your ideas. Brought to life.</h1>
-<p class="lede"><strong>Beautiful websites. Smarter systems. Less time spent on admin.</strong></p>
-<p class="lede2">Helping passionate business owners simplify the behind-the-scenes work, so they can focus on what they do best.</p>
+<h1>Your business can be available 24/7. You don’t have to be.</h1>
+<p class="lede">Beautiful websites and smart systems that let your customers browse, book and buy whenever suits them, while you get your time back.</p>
 <div class="ctas"><a class="btn solid" href="#contact">Let’s talk</a><a class="btn" href="#packages">See packages</a></div>
 </div>
 <div class="scene" aria-label="Illustration: a business dashboard showing bookings and customers connected, payments and inventory synced, and workflows automated">
@@ -161,52 +182,48 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
 <section class="band" id="build"><div class="wrap">
 <div class="intro">
-<h2>You built a business around something you love. Let’s keep it that way.</h2>
+<h2>Remember why you started?</h2>
 <div>
-<p>Running a business takes passion. But somewhere between the bookings, payments, orders and endless admin, it’s easy to lose time for the work you actually love.</p>
-<p>That’s where I come in.</p>
-<p>At ELMNT Studio, I build beautiful websites, connect business systems and create practical automations that make everyday operations easier.</p>
-<p>Whether you’re using Shopify, Squarespace or need something more customised, I’ll help find a solution that works for your business.</p>
-<p class="kicker">Less admin. Less overwhelm. More time for what matters.</p>
+<p>Maybe it was freedom. Flexibility. Spending your days on something you love.</p>
+<p>Somewhere along the way, you became the person doing everything. Answering enquiries after hours, managing bookings, chasing payments, keeping it all moving.</p>
+<p>I design beautiful websites and build smart systems that take care of the repetitive stuff. Your customers can find what they need, book and buy without waiting for you to pick up the phone.</p>
+<p class="kicker">A better experience for them. More time for you.</p>
 </div>
 </div>
-<div class="grid">
-<div class="card feature"><h3>Systems &amp; automation</h3><p>Bookings, payments, orders, stock and the tools you already use, connected so everyday admin runs itself. No more copying between spreadsheets or chasing what’s been paid.</p></div>
-<div class="card"><h3>Bookings &amp; payments</h3><p>Customers choose a time and pay upfront. No back-and-forth messages.</p></div>
-<div class="card"><h3>Websites</h3><p>From a simple landing page to a fully custom site, designed around your brand and easy to keep up to date.</p></div>
-<div class="card"><h3>Online stores</h3><p>Products, a proper cart and secure checkout, with shipping and stock looked after.</p></div>
-<div class="card"><h3>AI, made simple</h3><p>Curious about how AI could work for your business? We’ll find where it genuinely saves you time.</p></div>
+<div class="features reveal">
+<div class="card feature"><h3>Beautiful websites</h3><p>From a simple landing page to a fully custom site, designed around your personality and easy to keep up to date. Customers can find what they need at any hour.</p></div>
+<div class="card feature"><h3>Systems &amp; automation</h3><p>Bookings, payments, orders, stock and customer messages, connected so the everyday admin takes care of itself. Fewer spreadsheets, less chasing, nothing slipping through.</p></div>
 </div>
-<div class="have">
-<div><h3>Already have a website?</h3>
-<p>Keep it. If the site is fine but everything behind it is a juggle, I’ll streamline the back end: orders, stock, bookings, payments and the admin in between, connected so they work together.</p></div>
-<a class="btn dark" href="#contact">Streamline my back end</a>
+<div class="grid reveal">
+<div class="card"><h3>Bookings &amp; payments</h3><p>Clients choose a time and pay upfront, even at 10pm. No back-and-forth to find a slot.</p></div>
+<div class="card"><h3>Online stores</h3><p>Customers browse and buy whenever it suits them, with checkout, shipping and stock looked after.</p></div>
+<div class="card"><h3>AI, made simple</h3><p>Curious about AI? We’ll find the few places it genuinely saves you time, in plain language.</p></div>
 </div>
+<p class="fitnote">Not every business needs automation. Some just need a beautiful website. Already have a site you love? Keep it, and I’ll streamline what happens behind it. Either way, I’ll recommend what fits.</p>
 </div></section>
 
 <section class="band green" id="work"><div class="wrap">
 <h2>Recent work</h2>
 <p class="muted">Two businesses, two very different needs.</p>
-<div class="work">
+<div class="work reveal">
 <article class="case">
 <p class="kind">My own wellbeing brand &amp; online shop</p>
 <h3>ELMNT Earth</h3>
-<ul>
-<li>Custom online store with a multi-item cart and secure Stripe checkout</li>
-<li>Moved off Shopify to cut the monthly platform fee</li>
-<li>Booking system for online sessions, paid upfront and shown in each client’s own time zone</li>
-<li>Sitewide sale and sold-out handling that run themselves</li>
-</ul>
+<dl>
+<dt>The challenge</dt><dd>Monthly platform fees, sale and stock updates done by hand, and Reiki sessions booked through back-and-forth messages.</dd>
+<dt>What I built</dt><dd>A custom online store with secure Stripe checkout, a sitewide sale and sold-out handling that update themselves, and a booking system where clients pick a time in their own time zone and pay upfront.</dd>
+<dt>How it helps</dt><dd>Customers can shop and book whenever suits them, with less day-to-day admin and no monthly platform fee.</dd>
+</dl>
 <a class="go" href="https://elmntearth.com" target="_blank" rel="noopener">Visit elmntearth.com</a>
 </article>
 <article class="case">
 <p class="kind">Hair salon, Newtown</p>
 <h3>REY. Hair</h3>
-<ul>
-<li>A calm, modern website on the salon’s own domain</li>
-<li>Book Now connected to the salon’s existing booking system</li>
-<li>Product showcase, plus a QR code for the shopfront</li>
-</ul>
+<dl>
+<dt>The challenge</dt><dd>A one-stylist salon needed a professional online home that worked with the booking system it already used.</dd>
+<dt>What I built</dt><dd>A calm, modern website on the salon’s own domain, with Book Now linked to its existing booking system, a product showcase and a QR code for the shopfront.</dd>
+<dt>How it helps</dt><dd>Clients can see what’s on offer and book any time, from the website or the shop window.</dd>
+</dl>
 <a class="go" href="https://reyhair.com.au" target="_blank" rel="noopener">Visit reyhair.com.au</a>
 </article>
 </div>
@@ -214,14 +231,14 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
 <section class="band" id="packages"><div class="wrap">
 <h2>Packages</h2>
-<p class="muted">Every project starts with a free chat and ends with a fixed quote, so there are no surprises.</p>
-<div class="pricing">
+<p class="muted">Every project starts with a free chat and a fixed quote that sets out exactly what’s included, so there are no surprises.</p>
+<div class="pricing reveal">
 <div class="price"><h3>Landing page</h3><p class="from"><small>from</small>$450</p><p class="for">For getting online, simply</p>
 <ul><li>One page, built for phones first</li><li>Your own domain connected</li><li>Enquiry form or booking link</li><li>Hosting set up in your name</li></ul></div>
 <div class="price"><h3>Custom website</h3><p class="from"><small>from</small>$1,500</p><p class="for">For a site that’s fully yours</p>
 <ul><li>Designed around your brand</li><li>As many pages as you need</li><li>Domain, email and forms set up</li><li>Easy for you to update</li></ul></div>
 <div class="price feature"><h3>Online store</h3><p class="from"><small>from</small>$2,200</p><p class="for">For selling products online</p>
-<ul><li>Shop, cart and secure checkout</li><li>Shipping and stock levels</li><li>Payments straight to your account</li><li>No monthly platform fees</li></ul></div>
+<ul><li>Shop, cart and secure checkout</li><li>Shipping and stock levels</li><li>Payments straight to your account</li><li>Shopify, or a custom build with no platform fee</li></ul></div>
 <div class="price"><h3>Bookings &amp; payments</h3><p class="from"><small>from</small>$650</p><p class="for">Added to a new or existing site</p>
 <ul><li>Your available times, your rules</li><li>Paid upfront at booking</li><li>Confirmations sent automatically</li><li>Works across time zones</li></ul></div>
 <div class="price"><h3>Systems &amp; automation</h3><p class="from"><small>from</small>$1,500</p><p class="for">For your new or existing website</p>
@@ -229,33 +246,49 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <div class="price"><h3>AI made simple</h3><p class="from"><small>from</small>$180</p><p class="for">A 90-minute online session</p>
 <ul><li>Where AI fits your business</li><li>Set up on your own tools</li><li>Plain language, at your pace</li></ul></div>
 </div>
-<p class="fine muted">Prices in AUD. Your quote depends on what you need, and you’ll know it in full before any work begins.</p>
+<div class="costs reveal">
+<div><h3>Good to know</h3>
+<ul>
+<li>Your quote lists what’s included and the rounds of changes you get. Anything extra is quoted before I start.</li>
+<li>Everything is set up in your name, so you own your website, domain and accounts.</li>
+<li>Ongoing support is available if you’d like it, quoted separately.</li>
+</ul></div>
+<div><h3>Ongoing costs, paid directly by you</h3>
+<ul>
+<li>Domain name renewal each year</li>
+<li>Hosting, often free for simple sites; larger sites may have a small monthly fee</li>
+<li>Payment fees charged per sale by Stripe or your platform</li>
+<li>Subscriptions such as Shopify, Squarespace or booking apps, if you use them</li>
+</ul></div>
+</div>
+<p class="fine muted">Prices in AUD. Final pricing depends on what you need, and you’ll know it in full before any work begins.</p>
 </div></section>
 
 <section class="band green" id="how"><div class="wrap">
 <h2>How it works</h2>
-<div class="steps">
+<div class="steps reveal">
 <div class="step"><h3>A relaxed chat</h3><p>Tell me what you want to create and what’s eating your time. No tech knowledge needed.</p></div>
 <div class="step"><h3>A clear plan</h3><p>I come back with what I’d build, why, and a fixed price.</p></div>
 <div class="step"><h3>The build</h3><p>You see it take shape and tell me what feels right as we go.</p></div>
-<div class="step"><h3>Handover</h3><p>Everything is in your name, and I show you how to make simple changes yourself.</p></div>
+<div class="step"><h3>Handover &amp; support</h3><p>Everything is in your name. I show you how to make simple changes, and I’m here if you need more.</p></div>
 </div>
 </div></section>
 
 <section class="band" id="about"><div class="wrap about">
 <h2>Hi, I’m Alicia.</h2>
 <div>
-<p>I ran ZAS Automotive, an Australian business importing and wholesaling premium car detailing products to retail and trade customers, and manufacturing its own microfibre and accessories range for export around the world. I handled everything behind the scenes: manufacturing, importing, exporting globally, logistics, ordering and stock. It was a steep learning curve in getting all the working parts to talk to each other, and in how much time a business loses when they don’t.</p>
-<p>Later, with ELMNT Earth, I built my own shop, checkout and booking system, and cut my monthly costs while I was at it. I understand the back end because I’ve lived it, not just built it.</p>
-<p>ELMNT Studio is where I do the same for others. Whether you’re a sole trader, a family business or just starting out, I’ll help you build something that looks good and works hard, so you can spend more time on the part you love.</p>
+<p>I’ve spent years running businesses, not just building websites for them. At ZAS Automotive, a car care ecommerce and wholesale business, I looked after the operations: manufacturing, importing and exporting globally, logistics, stock, ordering and customer service.</p>
+<p>It was a steep learning curve in getting all the working parts to talk to each other, and I saw how much time disappears when they don’t.</p>
+<p>With ELMNT Earth, I built my own shop, checkout and booking system. I understand the juggle because I’ve lived it.</p>
+<p>ELMNT Studio is where I bring that to other businesses. Sole traders, family businesses, people just starting out: I’ll help you build something beautiful that works hard, so you can get back to the part you love.</p>
 <p class="muted">Based in Sydney. Working with businesses anywhere.</p>
 </div>
 </div></section>
 
 <section class="band green" id="contact"><div class="wrap contact">
 <div>
-<h2>Have something in mind? Let’s talk.</h2>
-<p class="muted">Tell me a little about your business and what you’d like to create. I’ll get back to you within two working days.</p>
+<h2>Let’s give you your time back.</h2>
+<p class="muted">Tell me a little about your business and what’s taking up your time. I’ll get back to you within two working days.</p>
 <p>Or email <a class="mail" href="mailto:info@elmntearth.com?subject=ELMNT%20Studio%20enquiry">info@elmntearth.com</a></p>
 </div>
 <form name="studio-enquiry" method="POST" action="/studio/thanks/" data-netlify="true" netlify-honeypot="website-url" id="enquiry">
@@ -274,11 +307,18 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 </main>
 
 <footer class="band" style="padding-block:28px"><div class="wrap">
-<span>ELMNT Studio · Sydney, Australia</span>
-<span>A sister studio of <a href="https://elmntearth.com">ELMNT Earth</a></span>
+<span>ELMNT Studio. The world can wait.</span>
+<span>Sydney, Australia · A sister studio of <a href="https://elmntearth.com">ELMNT Earth</a></span>
 </div></footer>
 
 <script>
+{
+  const els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(el => io.observe(el));
+  } else els.forEach(el => el.classList.add('in'));
+}
 {
   const f = document.getElementById('enquiry'), s = document.getElementById('f-status');
   f.addEventListener('submit', async e => {
