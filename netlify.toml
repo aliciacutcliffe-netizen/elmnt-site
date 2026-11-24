@@ -16,6 +16,94 @@
   status = 301
 
 # Old Shopify addresses → new pages, so Google links and old posts keep working
+# Shopify product links inside a collection, e.g. /collections/all/products/palo-santo-incense
+[[redirects]]
+  from = "/collections/:collection/products/:handle"
+  to = "/products/:handle/"
+  status = 301
+
+# Old Shopify products that aren't on the new site (drafts, hidden, meditations)
+[[redirects]]
+  from = "/products/chakana-incense-holder"
+  to = "/shop/#incense"
+  status = 301
+[[redirects]]
+  from = "/products/palo-santo-chakana-pendant-necklace"
+  to = "/products/palo-santo-chakana-necklace/"
+  status = 301
+[[redirects]]
+  from = "/products/inti-002"
+  to = "/shop/#inti"
+  status = 301
+[[redirects]]
+  from = "/products/inti-012"
+  to = "/shop/#inti"
+  status = 301
+[[redirects]]
+  from = "/products/inti-015"
+  to = "/shop/#inti"
+  status = 301
+[[redirects]]
+  from = "/products/ritual-stock-up-palo-santo-incense-12-boxes"
+  to = "/products/palo-santo-incense/"
+  status = 301
+[[redirects]]
+  from = "/products/curated-monthly-4-pack"
+  to = "/shop/"
+  status = 301
+[[redirects]]
+  from = "/products/elmnts-poems-of-nature-soul-heart"
+  to = "https://www.amazon.com.au/dp/B0HQ93B662"
+  status = 302
+[[redirects]]
+  from = "/products/rooted-in-earth-guided-meditation"
+  to = "/pages/meditations/"
+  status = 301
+[[redirects]]
+  from = "/products/the-inner-sun-guided-meditation"
+  to = "/pages/meditations/"
+  status = 301
+[[redirects]]
+  from = "/products/the-art-of-letting-go-guided-meditation"
+  to = "/pages/meditations/"
+  status = 301
+[[redirects]]
+  from = "/products/the-creative-current-guided-meditation"
+  to = "/pages/meditations/"
+  status = 301
+[[redirects]]
+  from = "/products/finding-your-voice-guided-meditation"
+  to = "/pages/meditations/"
+  status = 301
+[[redirects]]
+  from = "/products/the-golden-thread-guided-meditation"
+  to = "/pages/meditations/"
+  status = 301
+[[redirects]]
+  from = "/products/held-in-light-guided-meditation"
+  to = "/pages/meditations/"
+  status = 301
+[[redirects]]
+  from = "/products/rise-again-guided-meditation"
+  to = "/pages/meditations/"
+  status = 301
+[[redirects]]
+  from = "/products/the-receiving-heart-guided-meditation"
+  to = "/pages/meditations/"
+  status = 301
+[[redirects]]
+  from = "/products/the-quiet-knowing-guided-meditation"
+  to = "/pages/meditations/"
+  status = 301
+[[redirects]]
+  from = "/products/return-to-yourself-guided-meditation"
+  to = "/pages/meditations/"
+  status = 301
+[[redirects]]
+  from = "/products/the-meditation-library-all-11-meditations"
+  to = "/pages/meditations/"
+  status = 301
+
 [[redirects]]
   from = "/collections/palo-santo-incense"
   to = "/shop/#incense"
