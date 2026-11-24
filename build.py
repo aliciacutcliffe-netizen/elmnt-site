@@ -276,7 +276,7 @@ def home_page():
 <a class="btn ghost" href="/pages/palo-santo/">Read the story</a></div>
 </div></section>"""
     return page(f"{SITE['name']} | Meditation · Energy · Creation", body,
-                "ELMNT Earth is a creative and wellbeing studio: free guided meditations, Reiki and website creation, plus ethically sourced Palo Santo from Peru, now 40% off while stocks last." if SALE_PCT else
+                "ELMNT Earth is a creative and wellbeing studio: free guided meditations, Reiki and website creation, plus ethically sourced Palo Santo from Peru, now " + str(SALE_PCT) + "% off while stock lasts." if SALE_PCT else
                 "ELMNT Earth is a creative and wellbeing studio: free guided meditations, Reiki and website creation, plus ethically sourced Palo Santo from Peru.", "/", current="/")
 
 
