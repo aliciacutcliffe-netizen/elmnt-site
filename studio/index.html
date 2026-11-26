@@ -148,6 +148,19 @@ h2{font-size:clamp(1.85rem,4vw,2.75rem)}
 @media (min-width:980px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:600px){.band{padding-block:52px}.hero .lede{margin:16px 0 24px}.features{gap:10px;margin-top:26px}.features+.grid{margin-top:10px}.fitnote{font-size:15px}.case{padding:22px 20px}.case h3{font-size:1.45rem}.case dd{font-size:15px}.costs{gap:10px}.costs>div{padding:20px 18px;border-radius:18px}.price{padding:22px 20px}}
 @media (max-width:600px){.price{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;align-items:baseline}.price h3{font-size:1.15rem}.price .from{margin:0;font-size:1.7rem}.price .from small{font-size:13px}.price .for,.price ul{grid-column:1/-1}.price .for{margin:4px 0 10px}.price li{margin-bottom:3px;font-size:15px}.costs ul{font-size:15px}}
+.extra{margin-top:16px;background:var(--card);border:1px solid var(--line);border-left:4px solid light-dark(var(--forest),var(--moss));border-radius:22px;padding:26px 28px}
+.extra-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.extra h3{margin-bottom:6px}
+.extra .for{color:var(--muted);font-size:15px;margin:0 0 16px;max-width:52ch}
+.extra .quoted{margin:0;font:700 1rem "Inter Tight",sans-serif;letter-spacing:.01em;padding:8px 14px;border:1px solid var(--line);border-radius:999px;white-space:nowrap}
+.extra ul{margin:0;padding-left:1.1em;font-size:16px;columns:2 260px;column-gap:36px}
+.extra li{margin-bottom:5px;break-inside:avoid}
+.terms{margin-top:36px;padding-top:24px;border-top:1px solid var(--line)}
+.terms h3{font-size:1.05rem;margin-bottom:14px}
+.terms dl{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:14px 36px}
+.terms dt{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.terms dd{margin:0;font-size:14.5px;line-height:1.55;color:var(--muted)}
+@media (max-width:600px){.extra{padding:22px 20px;border-radius:18px}.extra h3{font-size:1.15rem}.extra .quoted{font-size:.9rem;padding:6px 12px}.extra ul,.extra li{font-size:15px}.extra .for{margin-bottom:0}.extra-head{row-gap:12px;margin-bottom:16px}.terms{margin-top:28px}.terms dd{font-size:14px}}
 html.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
 html.js .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){html.js .reveal{opacity:1;transform:none;transition:none}}
@@ -233,35 +246,27 @@ html.js .reveal.in{opacity:1;transform:none}
 <h2>Packages</h2>
 <p class="muted">Every project starts with a free chat and a fixed quote that sets out exactly what’s included, so there are no surprises.</p>
 <div class="pricing reveal">
-<div class="price"><h3>Landing page</h3><p class="from"><small>from</small>$450</p><p class="for">For getting online, simply</p>
-<ul><li>One page, built for phones first</li><li>Your own domain connected</li><li>Enquiry form or booking link</li><li>Hosting set up in your name</li></ul></div>
-<div class="price"><h3>Custom website</h3><p class="from"><small>from</small>$1,500</p><p class="for">For a site that’s fully yours</p>
-<ul><li>Designed around your brand</li><li>As many pages as you need</li><li>Domain, email and forms set up</li><li>Easy for you to update</li></ul></div>
-<div class="price feature"><h3>Online store</h3><p class="from"><small>from</small>$2,200</p><p class="for">For selling products online</p>
-<ul><li>Shop, cart and secure checkout</li><li>Shipping and stock levels</li><li>Payments straight to your account</li><li>Shopify, or a custom build with no platform fee</li></ul></div>
-<div class="price"><h3>Bookings &amp; payments</h3><p class="from"><small>from</small>$650</p><p class="for">Added to a new or existing site</p>
-<ul><li>Your available times, your rules</li><li>Paid upfront at booking</li><li>Confirmations sent automatically</li><li>Works across time zones</li></ul></div>
-<div class="price"><h3>Systems &amp; automation</h3><p class="from"><small>from</small>$1,500</p><p class="for">For your new or existing website</p>
-<ul><li>Inventory, orders and suppliers</li><li>Connecting the tools you already use</li><li>Fewer spreadsheets, less double handling</li><li>Scoped together before we start</li></ul></div>
-<div class="price"><h3>AI made simple</h3><p class="from"><small>from</small>$180</p><p class="for">A 90-minute online session</p>
-<ul><li>Where AI fits your business</li><li>Set up on your own tools</li><li>Plain language, at your pace</li></ul></div>
+<div class="price"><h3>Landing page</h3><p class="from"><small>from</small>$450</p><p class="for">For getting your business online, simply.</p>
+<ul><li>One professionally designed, mobile-responsive page</li><li>Your own domain connected</li><li>Enquiry form or booking link</li><li>Hosting set up in your name</li><li>Two rounds of revisions</li></ul></div>
+<div class="price"><h3>Custom website</h3><p class="from"><small>from</small>$1,500</p><p class="for">A digital presence designed around your business.</p>
+<ul><li>Up to five custom-designed pages</li><li>Mobile-responsive design aligned with your brand</li><li>Domain, email and enquiry forms configured</li><li>Easy for you to manage and update</li><li>Two rounds of revisions</li></ul></div>
+<div class="price feature"><h3>Online store</h3><p class="from"><small>from</small>$2,200</p><p class="for">Everything you need to start selling online.</p>
+<ul><li>Online shop, cart and secure checkout</li><li>Shipping and inventory configuration</li><li>Payment gateway integration</li><li>Shopify or a custom-built eCommerce solution</li><li>Two rounds of revisions</li></ul></div>
 </div>
-<div class="costs reveal">
-<div><h3>Good to know</h3>
-<ul>
-<li>Your quote lists what’s included and the rounds of changes you get. Anything extra is quoted before I start.</li>
-<li>Everything is set up in your name, so you own your website, domain and accounts.</li>
-<li>Ongoing support is available if you’d like it, quoted separately.</li>
-</ul></div>
-<div><h3>Ongoing costs, paid directly by you</h3>
-<ul>
-<li>Domain name renewal each year</li>
-<li>Hosting, often free for simple sites; larger sites may have a small monthly fee</li>
-<li>Payment fees charged per sale by Stripe or your platform</li>
-<li>Subscriptions such as Shopify, Squarespace or booking apps, if you use them</li>
-</ul></div>
+<div class="extra reveal">
+<div class="extra-head"><div><h3>Additional services</h3><p class="for">Specialist business solutions that simplify how your business runs, reduce manual work and give you your time back.</p></div><p class="quoted">Individually quoted</p></div>
+<ul><li>Business process automation</li><li>Custom backend development</li><li>Third-party software integrations</li><li>Shopify customisation</li><li>CRM and accounting integrations</li><li>Additional pages and functionality</li><li>Ongoing website maintenance and support</li></ul>
 </div>
-<p class="fine muted">Prices in AUD. Final pricing depends on what you need, and you’ll know it in full before any work begins.</p>
+<div class="terms reveal">
+<h3>Pricing and project terms</h3>
+<dl>
+<div><dt>Quotes</dt><dd>All prices are starting estimates in AUD. Every project is individually scoped and quoted based on your business requirements, functionality and integrations.</dd></div>
+<div><dt>Payment</dt><dd>A 50% deposit is required before work commences, with the remaining balance payable before launch or final handover.</dd></div>
+<div><dt>What’s not included</dt><dd>Third-party costs, including domains, hosting, software subscriptions and payment processing fees, are not included. Additional revisions, functionality or changes outside the agreed project scope will be quoted separately.</dd></div>
+<div><dt>Ongoing support</dt><dd>Ongoing maintenance and support beyond the agreed handover period are available separately.</dd></div>
+<div><dt>Online stores</dt><dd>Product quantities, catalogue setup and any data migration requirements are agreed during the quoting process.</dd></div>
+</dl>
+</div>
 </div></section>
 
 <section class="band green" id="how"><div class="wrap">
