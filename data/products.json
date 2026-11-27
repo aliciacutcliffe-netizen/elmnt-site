@@ -5,7 +5,7 @@
   "cat": "incense",
   "p": 10.5,
   "c": 15.0,
-  "stock": 320,
+  "stock": 315,
   "img": [
    [
     "/images/64E180DA-507C-4D7B-B3CC-C88DBEA7FD67.png",
@@ -39,7 +39,7 @@
   "cat": "incense",
   "p": 10.5,
   "c": 15.0,
-  "stock": 5,
+  "stock": 3,
   "img": [
    [
     "/images/BDDAF29A-7C2C-4DB8-BDE7-30D6644C7BD8.jpg",
@@ -54,7 +54,7 @@
   "cat": "incense",
   "p": 10.5,
   "c": 15.0,
-  "stock": 1,
+  "stock": 0,
   "img": [
    [
     "/images/BDDAF29A-7C2C-4DB8-BDE7-30D6644C7BD8.jpg",
@@ -73,7 +73,7 @@
   "cat": "incense",
   "p": 10.5,
   "c": 15.0,
-  "stock": 22,
+  "stock": 20,
   "img": [
    [
     "/images/6646504E-CD85-4C2F-BCB0-9BAC02A5BCED.png",
@@ -111,7 +111,7 @@
   "cat": "jewellery",
   "p": 14.0,
   "c": 20.0,
-  "stock": 3,
+  "stock": 0,
   "img": [
    [
     "/images/B28B0B7A-6422-41DD-A90E-27F8E15B023E.png",
@@ -488,7 +488,7 @@
   "cat": "inti",
   "p": 17.45,
   "c": 24.95,
-  "stock": 1,
+  "stock": 0,
   "x": "holder",
   "size": "Approx. 4.5 × 4.5 cm",
   "img": [
